@@ -1,13 +1,32 @@
 class Letter:
-  def __init__(letter, shift):
-    letter = letter.lower()
+  def __init__(self, character, shift):
+    self.character = character.lower()
+    self.shift = shift
 
   def alphabet(self):
     import string
-    return list(string.ascii_lowercase)
+    return list(string.ascii_lowercase + " ")
 
-  def encrypt_letter():
-    alphabet.index(letter % len(alphabet))
+  def encrypt_character(self):
+    alphabet = self.alphabet()
+    character = self.character
+    shift = self.shift
+    if not self.valid_character():
+      return self.character
+    else:
+      return alphabet[(alphabet.index(character) + shift) % len(alphabet)]
 
-  
-  # def decrypt_letter():
+  def decrypt_character(self):
+    alphabet = self.alphabet()
+    character = self.character
+    shift = self.shift
+    if not self.valid_character():
+      return self.character
+    else:
+      return alphabet[(alphabet.index(character) - shift) % len(alphabet)]
+
+  def valid_character(self):
+    return self.character in self.alphabet()
+
+    # import ipdb
+    # ipdb.set_trace()
