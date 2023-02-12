@@ -27,6 +27,3 @@ class Letter:
 
   def valid_character(self):
     return self.character in self.alphabet()
-
-    # import ipdb
-    # ipdb.set_trace()
