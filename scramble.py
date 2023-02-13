@@ -19,24 +19,24 @@ class Scramble:
     return last_four_digits
 
   def shifts(self):
-    result = []
+    shifts_array = []
     counter = 0
     for offset in self.offsets():
-        result.append(self.keys()[counter] + offset)
+        shifts_array.append(self.keys()[counter] + offset)
         counter += 1
-    return result
+    return shifts_array
 
   def encrypt_message(self):
     counter = 0
-    result = []
+    encrypted_chars = []
     chars_array = list(self.message)
     for char in chars_array:
       encrypted_character = letter.Letter(char, self.shifts()[counter]).encrypt_character()
-      result.append(encrypted_character)
+      encrypted_chars.append(encrypted_character)
       counter +=1
       if counter > 3:
         counter = 0 
-    return ''.join(result)
+    return ''.join(encrypted_chars)
 
   def decrypt_message(self):
     counter = 0

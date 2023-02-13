@@ -2,7 +2,9 @@ import scramble
 
 def test_scramble_initialization():
   instance = scramble.Scramble("Hello World", "12715", "120223")
-  assert instance is not None
+  assert instance.message == "Hello World"
+  assert instance.key == "12715"
+  assert instance.date == "120223"
 
 def test_keys():
   instance = scramble.Scramble("Hello World", "12715", "120223")
